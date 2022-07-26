@@ -1,0 +1,351 @@
+@font-face {
+  font-family: "Inter400";
+  src: url("./fonts/Inter-Regular.ttf");
+}
+
+body {
+  background: linear-gradient(
+    90deg,
+    #85f6b8 0%,
+    rgba(142, 217, 235, 0.85) 99.84%
+  );
+  width: 100%;
+  height: 100vh;
+}
+.contenair {
+  width: 495px;
+  height: 600px;
+  /* left: 322px; */
+  /* top: 166px; */
+  /* margin-right: 30%; */
+  padding: 30px;
+  background-color: white;
+  /* width: 571px; */
+  /* height: 760px; */
+  /* margin-left: 30%; */
+
+  margin: 0 auto;
+}
+
+.up-question {
+  font-family: "Inter400";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 1px;
+  text-align: center;
+  color: #555555;
+}
+.quiz-question {
+  font-family: "Inter400";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 3px;
+  text-align: center;
+  color: #555555;
+}
+.text-up {
+  text-align: center;
+  margin-top: 50px;
+  height: 113px;
+  color: #555555;
+  font-family: "Inter400";
+  font-style: normal;
+  /* font-weight: 400; */
+  font-size: 17px;
+  line-height: 30px;
+}
+.carre {
+  margin-top: 15px;
+  /* margin-bottom: 38px; */
+  border: 1px solid #dddddd;
+  width: 100%;
+  height: 50px;
+  display: flex;
+  align-items: center;
+}
+* {
+  box-sizing: border-box;
+}
+.nom {
+  text-align: left;
+  font-family: "Inter400";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+  color: #555555;
+}
+.click {
+  position: absolute;
+  drop-shadow: (0px 4px 4px rgba(0, 0, 0, 0.25));
+  border: none;
+  font-family: "Inter400";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 24px;
+  text-align: center;
+  color: #ffffff;
+  outline: 1px solid #555;
+  background-color: green;
+  width: 226px;
+  height: 59px;
+  margin-left: 95px;
+  margin-right: 95px;
+}
+.quiz-container {
+  position: relative;
+  height: 200px;
+  margin-top: 40px;
+}
+.essaye {
+  padding-bottom: 56px;
+
+  box-sizing: border-box;
+}
+p {
+  text-align: center;
+}
+
+*/ .round-time-bar div {
+  height: 5px;
+  background: linear-gradient(to bottom, green, green);
+}
+@keyframes roundtime {
+  to {
+    /* More performant than animating `width` */
+    transform: scaleX(0);
+  }
+}
+.round-time-bar div {
+  /* ... */
+  animation: roundtime calc(var(--duration) * 1s) steps(var(--duration))
+    forwards;
+  transform-origin: left center;
+}
+
+.quiz-body {
+  margin-top: 15px;
+  padding-bottom: 50px;
+}
+.option-block-container {
+  margin-top: 20px;
+  max-width: 420px;
+}
+.option-block {
+  padding: 10px;
+  background: aliceblue;
+  border: 1px solid #84c5fe;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+.result-question {
+  font-weight: bold;
+}
+.c-wrong {
+  margin-left: 20px;
+  color: #ff0000;
+}
+.c-correct {
+  margin-left: 20px;
+  color: green;
+}
+.last-row {
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 25px;
+  margin-bottom: 25px;
+}
+.res-header {
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 15px;
+  padding-bottom: 15px;
+}
+#myProgress {
+  overflow: hidden;
+  background: #dddddd;
+  border-radius: 10px;
+
+  height: 9px;
+}
+
+#myBar {
+  border-radius: 10px;
+  width: 1%;
+  height: 14px;
+  background-color: green;
+}
+.brd {
+  display: flex;
+  align-items: center;
+  height: 57px;
+  /* padding: 8px; */
+  border: 1px solid #dddddd;
+  margin-bottom: 33px;
+  margin-top: 33px;
+}
+.all-button {
+  display: flex;
+}
+.btn-1 {
+  border: none;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  font-family: "Inter400";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 24px;
+  text-align: center;
+  color: white;
+  background-color: #ec880c;
+  width: 244px;
+  height: 59px;
+  margin-right: -139px;
+}
+.btn-2 {
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  border: none;
+  font-family: "Inter400";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 24px;
+  text-align: center;
+  color: white;
+  background-color: rgba(2, 138, 61, 0.42);
+  height: 59px;
+  width: 244px;
+  margin-left: 178px;
+}
+#radio {
+  margin: 15px;
+  border: 1px solid #dddddd;
+  border-radius: 20px;
+  width: 20px;
+  height: 20px;
+}
+input[type="radio"]:checked {
+  appearance: none;
+  background-color: green;
+  height: 20px;
+  width: 20px;
+  border: 1px solid green;
+}
+.radio-custom-label {
+  font-family: "Inter400";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: #555555;
+}
+.number {
+  justify-content: space-between;
+  display: flex;
+}
+.accueil {
+  margin-top: 30px;
+  font-family: "Inter400";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 24px;
+  text-align: center;
+  color: #ffffff;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  border: none;
+  background-color: #0880d6;
+  height: 59px;
+  width: 244px;
+  margin-left: 90px;
+}
+.up-name {
+  margin-top: 5px;
+  font-family: "Inter400";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 40px;
+  line-height: 48px;
+  text-align: center;
+  color: #555555;
+}
+.email {
+  font-family: "Inter400";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 24px;
+  text-align: center;
+  color: #555555;
+}
+.validation {
+  display: flex;
+  margin-left: 155px;
+  margin-top: 42px;
+}
+.score {
+  font-family: "Inter400";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+  text-align: center;
+  color: #555555;
+  /* margin-top: 44px; */
+}
+
+#myProgress #myBar {
+  height: 10px;
+  animation: myProgress-countdown;
+  /* Placeholder, this will be updated using javascript */
+  animation-duration: 60s;
+  /* We stop in the end */
+  animation-iteration-count: 1;
+  /* Stay on pause when the animation is finished finished */
+  animation-fill-mode: forwards;
+  /* We start paused, we start the animation using javascript */
+  animation-play-state: paused;
+  /* We want a linear animation, ease-out is standard */
+  animation-timing-function: linear;
+}
+@keyframes myProgress-countdown {
+  0% {
+    width: 100%;
+  }
+  100% {
+    width: 0%;
+  }
+}
+.error {
+  font-family: "Inter400";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 15px;
+  color: red;
+}
+
+.red-error.error input {
+  border: 2px solid red;
+}
+.cacher {
+  width: 195px;
+  visibility: hidden;
+}
+.one-image {
+  height: 227px;
+  margin-left: -51px;
+
+  /* margin-top: 33px; */
+}
+.red-error2 {
+  margin-top: 50px;
+}
+@media all and(max-width: 1024px) {
+  #bloc_page {
+    width: auto;
+  }
+}
+@media all and (orientation: portrait) {
+}
