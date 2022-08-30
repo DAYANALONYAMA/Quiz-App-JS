@@ -13,6 +13,7 @@ for (var i = 0; i < inputs.length; i++) {
 }
 
 console.log(choices);
+let answersArray = [];
 let currentQuestion = {};
 let acceptingAnswers = false;
 let score = 0;
@@ -165,6 +166,7 @@ const getNewQuestion = () => {
     finish.textContent = "Terminer";
   }
   console.log("NEW");
+  removeBorder();
   questionCounter++;
   const questionIndex = Math.floor(Math.random() * availableQuestions.length);
   currentQuestion = availableQuestions[questionCounter];
@@ -197,6 +199,7 @@ const getNewQuestion = () => {
   downloadTimer = setInterval(function () {
     if (reverse_counter <= 0) {
       clearInterval(downloadTimer);
+
       console.log("end");
       // pas certaine
       checkAnswers();
@@ -212,8 +215,13 @@ const choiceClick = (e) => {
   e.target.parentElement.querySelector("input").checked = true;
   const selectedAnswer =
     e.target.parentElement.querySelector("label").dataset["number"];
+
   console.log(selectedAnswer);
+
   checkAnswers(selectedAnswer);
+  // document.querySelector(".check-border").classList.remove("check-border");
+  // e.target.classList.add("check-border");
+
   Mycolor();
 };
 
@@ -222,24 +230,31 @@ Array.from(choices).forEach((choice) => {
     choiceClick(e);
   });
 });
+function removeBorder() {
+  if (document.querySelector(".check-border")) {
+    document.querySelector(".check-border").classList.remove("check-border");
+  }
+}
 Array.from(radios).forEach((choice) => {
   choice.addEventListener("click", (e) => {
     choiceClick(e);
+    removeBorder();
+    choice.parentElement.classList.add("check-border");
   });
 });
 
 const commencer = () => {
-  const queue_url = getUrl();
+  const queue_url = window.location.pathname;
   console.log(queue_url);
-  if (queue_url === "quiz.html") {
+  if (queue_url === "/quiz.html") {
     questionCounter = 0;
     score = 0;
     availableQuestions = [...questions];
     getNewQuestion();
     nextpage();
     cancelButton();
-  } else if (queue_url === "index.html") {
-    beginQuiz();
+  } else if (queue_url === "/index.html" || queue_url === "/") {
+    // beginQuiz();
     validateName();
   } else {
     acueil();
@@ -250,8 +265,9 @@ function nextpage() {
   nextButton.addEventListener("click", (e) => {
     e.preventDefault();
     if (nextButton.style.backgroundColor !== "rgb(2, 138, 61)") return;
-    reverse_counter = 60;
+    document.getElementById("counting").textContent = 60;
     getNewQuestion();
+
     var element = document.querySelector(".btn-2");
     element.style.backgroundColor = "rgba(2, 138, 61, 0.42)";
   });
@@ -286,13 +302,13 @@ function getUrl() {
   queue_url = urlcourante.substring(urlcourante.lastIndexOf("/") + 1);
   return queue_url;
 }
-function beginQuiz() {
-  let buttonBegin = document.querySelector(".click");
-  buttonBegin.addEventListener("click", (e) => {
-    //e.preventDefault();
-    // window.location.assign("/quiz.html");
-  });
-}
+// function beginQuiz() {
+//   let buttonBegin = document.querySelector(".click");
+//   buttonBegin.addEventListener("click", (e) => {
+//     //e.preventDefault();
+//     // window.location.assign("/quiz.html");
+//   });
+// }
 function cancelButton() {
   let cancelButton = document.querySelector(".btn-1");
   cancelButton.addEventListener("click", (e) => {
@@ -359,11 +375,13 @@ function validateName() {
 }
 
 function checkAnswers(answer) {
-  if (+answer === +currentQuestion.answer) {
-    score++;
-    localStorage.setItem("score", score);
-    console.log("good answer ", score);
-  }
+  console.log(+answer === +currentQuestion.answer);
+  answersArray[questionCounter - 1] = +answer === +currentQuestion.answer;
+  console.log(answersArray);
+  let arr = answersArray.filter((element) => element == true);
+  let score = arr.length;
+  localStorage.setItem("score", score);
+  console.log("good answer ", score);
 }
 function Mycolor() {
   var element = document.querySelector(".btn-2");
